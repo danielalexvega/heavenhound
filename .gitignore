@@ -1,0 +1,6 @@
+node_modules
+.next
+package-lock.json
+out
+src/assets/images/JasStudio1.png
+src/assets/images/JasStudio2.png
