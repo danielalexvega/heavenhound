@@ -7,7 +7,6 @@ import LogoHHR from "assets/maggie/maggie-color.png";
 import MobileDrawer from "./mobile-drawer";
 import menuItems from "./header.data";
 
-
 export default function Header({ className }) {
   return (
     <header sx={styles.header} className={className} id="header">
@@ -33,7 +32,15 @@ export default function Header({ className }) {
           variant="secondary"
           aria-label="Contact"
         >
-          Contact
+          <Link
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-120}
+            duration={500}
+          >
+            Contact
+          </Link>
         </Button>
         <MobileDrawer />
       </Container>

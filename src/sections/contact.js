@@ -1,68 +1,82 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
-import { Container, Box, Heading, Text, Image, Button } from 'theme-ui';
+import { jsx } from "theme-ui";
+import {
+  Container,
+  Box,
+  Heading,
+  Text,
+  Image,
+  Button,
+  Label,
+  Input,
+  Select,
+  Textarea,
+} from "theme-ui";
+import SectionHeader from "components/section-header";
 
-export default function Banner() {
+export default function Contact() {
   return (
-    <section sx={styles.banner} id="contact">
-      
+    <section id="contact" sx={styles.section}>
+      <Container css={{ textAlign: "center" }}>
+        <SectionHeader slogan="Let's get to work" title="What's the damn deal" />
+      </Container>
+      <Container sx={styles.containerBox}>
+        <Box as="form" onSubmit={(e) => e.preventDefault()}>
+          <Label htmlFor="name">Name</Label>
+          <Input name="name" id="name" mb={3} />
+          <Label htmlFor="email">Email Address</Label>
+          <Input type="email" name="email" id="email" mb={3} />
+          <Label htmlFor="sound">How can I help?</Label>
+          <Select name="sound" id="sound" mb={3}>
+            <option>Pre Production</option>
+            <option>Audio Engineering</option>
+            <option>Mixing</option>
+            <option>Mastering</option>
+            <option>A little of everything</option>
+          </Select>
+          <Label htmlFor="comment">Tell me about the project</Label>
+          <Textarea name="comment" id="comment" rows={6} mb={3} />
+          <Button>Submit</Button>
+        </Box>
+      </Container>
     </section>
   );
 }
 
 const styles = {
-  banner: {
-    pt: ['140px', '145px', '155px', '170px', null, null, '180px', '215px'],
-    pb: [2, null, 0, null, 2, 0, null, 5],
-    position: 'relative',
-    zIndex: 2,
-    '&::before': {
-      position: 'absolute',
-      content: '""',
-      bottom: 6,
-      left: 0,
-      height: '100%',
-      width: '100%',
-      zIndex: -1,
-      backgroundImage: `url(${ShapeLeft})`,
-      backgroundRepeat: `no-repeat`,
-      backgroundPosition: 'bottom left',
-      backgroundSize: '36%',
+  section: {
+    maxWidth: ["100%", null, null, null, "80%"],
+    margin: "0 auto 50px",
+  },
+  containerBox: {
+    display: "flex",
+    flexDirection: "column",
+    maxWidth: "800px",
+    // alignItems: ["flex-start", null, null, "center"],
+    // justifyContent: ["flex-start", null, null, "space-between"],
+    // flexDirection: ["column", null, null, "row"],
+    // pb: [0, null, null, null, null, 7],
+  },
+  contentBox: {
+    width: ["100%", "90%", "535px", null, "57%", "60%", "68%", "60%"],
+    mx: "auto",
+    textAlign: "center",
+    mb: ["40px", null, null, null, null, 7],
+  },
+  imageBox: {
+    justifyContent: "center",
+    textAlign: "center",
+    display: "inline-flex",
+    mb: [0, null, -6, null, null, "-40px", null, -3],
+    img: {
+      position: "relative",
+      height: [245, "auto"],
     },
-    '&::after': {
-      position: 'absolute',
-      content: '""',
-      bottom: '40px',
-      right: 0,
-      height: '100%',
-      width: '100%',
-      zIndex: -1,
-      backgroundImage: `url(${ShapeRight})`,
-      backgroundRepeat: `no-repeat`,
-      backgroundPosition: 'bottom right',
-      backgroundSize: '32%',
-    },
-    container: {
-      minHeight: 'inherit',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-    },
-    contentBox: {
-      width: ['100%', '90%', '535px', null, '57%', '60%', '68%', '60%'],
-      mx: 'auto',
-      textAlign: 'center',
-      mb: ['40px', null, null, null, null, 7],
-    },
-    imageBox: {
-      justifyContent: 'center',
-      textAlign: 'center',
-      display: 'inline-flex',
-      mb: [0, null, -6, null, null, '-40px', null, -3],
-      img: {
-        position: 'relative',
-        height: [245, 'auto'],
-      },
+  },
+  forms: {
+    label: {
+      fontSize: 1,
+      fontWeight: "bold",
     },
   },
 };
