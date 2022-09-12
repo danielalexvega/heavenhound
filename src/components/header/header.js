@@ -36,7 +36,7 @@ export default function Header({ className }) {
             to="contact"
             spy={true}
             smooth={true}
-            offset={-120}
+            offset={-150}
             duration={500}
           >
             Contact

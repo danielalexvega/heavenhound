@@ -324,6 +324,7 @@ export default {
     },
   },
   forms: {
+    maxWidth: "600px",
     label: {
       fontSize: 1,
       fontWeight: "bold",
